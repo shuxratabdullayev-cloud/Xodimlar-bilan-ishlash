@@ -251,6 +251,10 @@
                             <input type="text" id="e-name" placeholder="Masalan: Aliyev Vali" required>
                         </div>
                         <div class="form-group">
+                            <label>Ish Staji (Yil)</label>
+                            <input type="number" id="e-tenure" placeholder="0" min="0" step="0.1">
+                        </div>
+                        <div class="form-group">
                             <label>Bandlik Turi</label>
                             <select id="e-type" onchange="toggleEmpInputs()">
                                 <option value="Shtat">Shtat (Doimiy)</option>
@@ -312,6 +316,7 @@
                                 <th>F.I.SH</th>
                                 <th>Lavozim</th>
                                 <th>Turi</th>
+                                <th>Staj</th>
                                 <th class="num">Maosh</th>
                                 <th>Imtiyoz</th>
                                 <th>Aliment</th>
@@ -353,7 +358,9 @@
                                 <th>Plan (Soat)</th>
                                 <th style="background:#fff7ed;">Fact (Soat)<br><small>Haqiqiy ishlangan</small></th>
                                 <th style="background:#ecfeff;">Mukofot<br><small>(Bonus)</small></th>
-                                <th style="background:#fef2f2;">Kasalik<br><small>(Bolnichniy)</small></th>
+                                <th style="background:#fef2f2;">Kasalik<br><small>(Soat)</small></th>
+                                <th style="background:#f0fdfa;">Ta'til<br><small>(Kun)</small></th>
+                                <th style="background:#fdf4ff;">Komunal<br><small>(Ushlanma)</small></th>
                             </tr>
                         </thead>
                         <tbody id="tabel-tbody"></tbody>
@@ -389,15 +396,16 @@
                                 <th rowspan="2">№</th>
                                 <th rowspan="2">F.I.SH</th>
                                 <th rowspan="2" class="num">Hisoblangan<br>(Gross)</th>
-                                <th colspan="3" style="text-align:center">Ushlanmalar</th>
+                                <th colspan="4" style="text-align:center">Ushlanmalar</th>
                                 <th rowspan="2" class="num">Netto</th>
                                 <th rowspan="2" class="num">Aliment</th>
                                 <th rowspan="2" class="num" style="background:#f0fdf4;">Qo'lga<br>(To'lanadi)</th>
                             </tr>
                             <tr style="background:#ecfeff; font-size:0.8rem;">
-                                <th class="num">Imtiyoz<br>(Qoldiriladi)</th>
+                                <th class="num">Imtiyoz</th>
                                 <th class="num">Soliq (12%)</th>
                                 <th class="num">INPS (0.1%)</th>
+                                <th class="num" style="color:#d946ef">Komunal</th>
                             </tr>
                         </thead>
                         <tbody id="pay-tbody"></tbody>
@@ -408,6 +416,7 @@
                                 <td class="num" id="t-exempt">0</td>
                                 <td class="num" id="t-tax">0</td>
                                 <td class="num" id="t-inps">0</td>
+                                <td class="num" id="t-util">0</td>
                                 <td class="num" id="t-net">0</td>
                                 <td class="num" id="t-alim">0</td>
                                 <td class="num" id="t-pay">0</td>
@@ -567,6 +576,7 @@
             const emp = {
                 id: editingId || Date.now(),
                 name: document.getElementById('e-name').value,
+                tenure: parseFloat(document.getElementById('e-tenure').value) || 0,
                 type: type,
                 position: posName,
                 salary: Math.round(parseFloat(document.getElementById('e-salary').value)) || 0,
@@ -585,6 +595,7 @@
                     <td><b>${e.name}</b></td>
                     <td>${e.position}</td>
                     <td><span class="badge" style="background:${getBadgeColor(e.type)}">${e.type}</span></td>
+                    <td>${e.tenure || 0} yil</td>
                     <td class="num">${e.salary.toLocaleString()}</td>
                     <td><small>${getExemptText(e.exemption)}</small></td>
                     <td>${e.aliment > 0 ? e.aliment + '%' : '-'}</td>
@@ -601,6 +612,7 @@
             const e = employees.find(x => x.id === id);
             editingId = id;
             document.getElementById('e-name').value = e.name;
+            document.getElementById('e-tenure').value = e.tenure || 0;
             document.getElementById('e-type').value = e.type;
             document.getElementById('e-exemption').value = e.exemption || "";
             document.getElementById('e-aliment').value = e.aliment || 0;
@@ -620,7 +632,7 @@
             // Merge with current employees. If emp exists but no tabel record, create default.
             const tbody = document.getElementById('tabel-tbody');
             tbody.innerHTML = employees.map((e, i) => {
-                const rec = records.find(r => r.id === e.id) || { fact: 168, bonus: 0, sick: 0 };
+                const rec = records.find(r => r.id === e.id) || { fact: 168, bonus: 0, sick: 0, vacation: 0, utility: 0 };
                 return `
                 <tr>
                     <td>${i + 1}</td>
@@ -629,13 +641,19 @@
                         <span id="plan-${e.id}">168</span>
                     </td>
                     <td>
-                        <input type="number" class="inp-table" id="fact-${e.id}" value="${rec.fact}" style="width:80px">
+                        <input type="number" class="inp-table" id="fact-${e.id}" value="${rec.fact}" style="width:70px" title="Ishlagan soati">
                     </td>
                     <td>
-                        <input type="text" class="inp-table" id="bonus-${e.id}" value="${rec.bonus}" placeholder="Sum / %" style="width:100px; color:#d97706">
+                        <input type="text" class="inp-table" id="bonus-${e.id}" value="${rec.bonus}" placeholder="Sum / %" style="width:80px; color:#d97706">
                     </td>
                     <td>
-                        <input type="text" class="inp-table" id="sick-${e.id}" value="${rec.sick}" placeholder="Sum / %" style="width:100px; color:#dc2626">
+                        <input type="number" class="inp-table" id="sick-${e.id}" value="${rec.sick}" placeholder="Soat" style="width:60px; color:#dc2626" title="Kasal bo'lgan soati">
+                    </td>
+                    <td>
+                        <input type="number" class="inp-table" id="vac-${e.id}" value="${rec.vacation || 0}" placeholder="Kun" style="width:50px; color:#059669" title="Ta'til kunlari">
+                    </td>
+                    <td>
+                        <input type="number" class="inp-table" id="util-${e.id}" value="${rec.utility || 0}" placeholder="Sum" style="width:80px; color:#d946ef" title="Komunal ushlanma">
                     </td>
                 </tr>
                 `;
@@ -652,7 +670,9 @@
                     plan: plan,
                     fact: parseInt(document.getElementById(`fact-${e.id}`).value) || 0,
                     bonus: document.getElementById(`bonus-${e.id}`).value,
-                    sick: document.getElementById(`sick-${e.id}`).value
+                    sick: parseInt(document.getElementById(`sick-${e.id}`).value) || 0, // Now MUST be hours for auto-calc
+                    vacation: parseInt(document.getElementById(`vac-${e.id}`).value) || 0,
+                    utility: parseInt(document.getElementById(`util-${e.id}`).value) || 0
                 };
             });
 
@@ -684,9 +704,12 @@
                 const tr = tRecords.find(r => r.id === e.id) || { plan: 168, fact: 0, bonus: 0, sick: 0 };
 
                 const baseSalary = e.salary;
-                const calculatedSalary = tr.plan > 0 ? Math.round((baseSalary / tr.plan) * tr.fact) : 0;
+                const dailyRate = tr.plan > 0 ? (baseSalary / 25.4) : 0; // Approx daily rate for Vacation
+                const hourlyRate = tr.plan > 0 ? (baseSalary / tr.plan) : 0;
 
-                // Helper: parse % or Sum
+                const calculatedSalary = Math.round(hourlyRate * tr.fact);
+
+                // --- BONUS ---
                 const parseVal = (val, base) => {
                     if (!val) return 0;
                     if (typeof val === 'string' && val.includes('%')) {
@@ -695,11 +718,26 @@
                     }
                     return parseFloat(val) || 0;
                 };
-
                 const bonusVal = parseVal(tr.bonus, baseSalary);
-                const sickVal = parseVal(tr.sick, calculatedSalary);
 
-                const gross = calculatedSalary + bonusVal + sickVal;
+                // --- SICK PAY (AUTO) ---
+                // Staj: <5 = 60%, 5-8 = 80%, >8 = 100%
+                let sickPercent = 100;
+                const staj = e.tenure || 0;
+                if (staj < 5) sickPercent = 60;
+                else if (staj < 8) sickPercent = 80;
+
+                // Sick Amount = (AvgHourly * SickHours * Percent)
+                // For simplified "Average", we use Current Hourly Rate. 
+                const sickVal = Math.round(hourlyRate * (tr.sick || 0) * (sickPercent / 100));
+
+                // --- VACATION PAY ---
+                // Vacation = AvgDaily * VacationDays
+                // 25.4 is average working days in month
+                const vacationVal = Math.round(dailyRate * (tr.vacation || 0));
+
+                // GROSS
+                const gross = calculatedSalary + bonusVal + sickVal + vacationVal;
 
                 // Exemptions
                 let exemptAmount = 0;
@@ -717,19 +755,20 @@
 
                 const taxable = Math.max(0, gross - Math.round(exemptAmount));
                 const tax = Math.round(taxable * 0.12);
-                const inps = Math.round(taxable * 0.001); // 0.1% for INPS
+                const inps = Math.round(taxable * 0.001);
 
-                const net = gross - tax; // Tax includes INPS usually, but if INPS is separate deduction? 
-                // Context: In Uzb, 12% includes 0.1% INPS. So "Tax Calculated" is the deduction.
-                // Net = Gross - Tax.
+                const net = gross - tax;
 
                 // Aliment
                 const alimentPercent = e.aliment || 0;
                 const aliment = Math.round(net * (alimentPercent / 100));
 
-                const toPay = net - aliment;
+                // Utility Deduction (After Net, before Pay)
+                const utility = tr.utility || 0;
 
-                const social = Math.round(gross * 0.12); // Social tax 12%
+                const toPay = net - aliment - utility;
+
+                const social = Math.round(gross * 0.12);
 
                 return {
                     id: e.id,
@@ -740,6 +779,7 @@
                     taxableIndex: taxable,
                     tax: tax,
                     inps: inps,
+                    utility: utility,
                     net: net,
                     aliment: aliment,
                     toPay: toPay,
