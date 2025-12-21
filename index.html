@@ -4,212 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kadrlar Hisobi - FAXR MADAD KONSALT</title>
+    <title>Kadrlar va Ish Haqi - FAXR MADAD KONSALT</title>
     <style>
         :root {
-            /* SLATE/BLUE THEME FOR KADRLAR */
-            --primary-color: #334155; /* Slate 700 */
-            --primary-dark: #1e293b;  /* Slate 800 */
-            --bg-color: #f1f5f9;      /* Slate 100 */
+            /* BLUE/SLATE THEME */
+            --primary-color: #1e40af; /* Blue 800 */
+            --bg-color: #f8fafc;      /* Slate 50 */
             --card-bg: #ffffff;
-            --text-color: #0f172a;    /* Slate 900 */
-            --border-color: #cbd5e1;  /* Slate 300 */
-            --accent-color: #2563eb;  /* Blue 600 */
-            --success-color: #10b981;
-            --danger-color: #ef4444;
-            --warning-color: #f59e0b;
+            --text-main: #0f172a;
+            --border-color: #cbd5e1;
+            --success: #16a34a;
+            --danger: #dc2626;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: var(--primary-dark);
-            color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            flex: 1;
-            width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        /* NAVIGATION TABS */
-        .nav-tabs {
-            display: flex;
-            gap: 10px;
-            background: white;
-            padding: 10px;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-btn {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            background: transparent;
-            color: var(--primary-color);
-            border-radius: 0.4rem;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.2s;
-        }
-
-        .nav-btn:hover {
-            background: var(--bg-color);
-        }
-
-        .nav-btn.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* CARD & LAYOUT */
-        .card {
-            background: var(--card-bg);
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            padding: 1.5rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .row-grid {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 900px) {
-            .row-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .section-title {
-            color: var(--primary-dark);
-            margin-top: 0;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* FORMS */
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--primary-dark);
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 0.6rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            font-size: 0.95rem;
-            box-sizing: border-box;
-        }
-
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: white;
-            width: 100%;
-        }
-        .btn-primary:hover { background-color: #1d4ed8; }
-
-        .btn-success { background-color: var(--success-color); color: white; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-color); color: var(--text-main); margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
         
-        .btn-sm {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.85rem;
-            width: auto;
-        }
+        /* HEADER */
+        header { background: var(--primary-color); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        h1 { margin: 0; font-size: 1.4rem; }
 
-        /* TABLE */
-        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-color); }
-        th { background-color: #f8fafc; color: var(--primary-dark); font-weight: 700; }
-        tr:hover { background-color: #f1f5f9; }
-        .num-col { text-align: right; font-family: 'Consolas', monospace; }
+        /* LAYOUT */
+        .container { max-width: 1400px; margin: 20px auto; padding: 0 15px; width: 100%; box-sizing: border-box; }
+        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        
+        /* TABS */
+        .tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 1px; }
+        .tab-btn { padding: 10px 20px; background: #e2e8f0; border: none; border-radius: 8px 8px 0 0; cursor: pointer; font-weight: 600; color: #64748b; }
+        .tab-btn.active { background: var(--primary-color); color: white; }
 
-        .badge {
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            color: white;
-            font-weight: bold;
-        }
-        .bg-blue { background: #3b82f6; }
-        .bg-orange { background: #f97316; }
-        .bg-purple { background: #a855f7; }
-        .bg-gray { background: #64748b; }
+        /* FORMS & INPUTS */
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; box-sizing: border-box; }
+        input:focus, select:focus { outline: 2px solid var(--primary-color); border-color: transparent; }
+        
+        /* BUTTONS */
+        .btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; color: white; display: inline-flex; align-items: center; gap: 5px; }
+        .btn-primary { background: var(--primary-color); }
+        .btn-success { background: var(--success); }
+        .btn-danger { background: var(--danger); }
+        .btn-ghost { background: transparent; color: inherit; border: 1px solid var(--border-color); }
+
+        /* TABLES */
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th, td { padding: 10px; border: 1px solid var(--border-color); text-align: left; }
+        th { background: #f1f5f9; }
+        .num { text-align: right; font-family: monospace; font-weight: 600; }
+        .badge { padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; color: white; font-weight: bold; }
 
         /* PRINT */
         @media print {
             .no-print { display: none !important; }
-            body { background: white; font-size: 12pt; }
-            .card, .nav-tabs { box-shadow: none; border: none; padding: 0; }
-            .container { margin: 0; padding: 0; max-width: 100%; }
+            body { background: white; }
+            .card { border: none; shadow: none; padding: 0; }
+            .container { max-width: 100%; margin: 0; }
             table { width: 100%; border: 1px solid black; }
-            th, td { border: 1px solid black; padding: 5px; }
-            h1 { font-size: 14pt; }
+            th, td { border: 1px solid black; }
         }
     </style>
 </head>
@@ -218,481 +68,431 @@
 
     <header class="no-print">
         <div>
-            <h1>📝 Kadrlar Hisobi</h1>
-            <div style="font-size:0.8rem; opacity:0.8;">"FAXR MADAD KONSALT"</div>
+            <h1>Kadrlar va Ish Haqi (6700)</h1>
+            <small>"FAXR MADAD KONSALT" MChJ</small>
         </div>
-        <div style="display:flex; gap:10px;">
-            <button onclick="window.print()" class="btn btn-sm btn-success">🖨️ Chop etish</button>
+        <div>
+            <span style="font-size:0.9rem; margin-right:10px;" id="current-date"></span>
         </div>
     </header>
 
     <div class="container">
-
-        <!-- NAVIGATION -->
-        <div class="nav-tabs no-print">
-            <button class="nav-btn active" onclick="switchTab('employees')" id="tab-emp">Xodimlar Ro'yxati</button>
-            <button class="nav-btn" onclick="switchTab('shtat')" id="tab-shtat">Shtat Jadvali</button>
+        
+        <div class="tabs no-print">
+            <button class="tab-btn active" onclick="setTab('kadrlar')">👨‍💼 Xodimlar (Kadr)</button>
+            <button class="tab-btn" onclick="setTab('payroll')">💰 Ish Haqi Hisobi</button>
+            <button class="tab-btn" onclick="setTab('shtat')">🏢 Shtat Jadvali</button>
         </div>
 
-        <!-- 1. XODIMLAR SECTION -->
-        <div id="section-employees">
-            <div class="card no-print" style="margin-bottom:1.5rem;">
-               <h3 class="section-title">Qidiruv va Filter</h3>
-               <div style="display:flex; gap:10px;">
-                   <input type="text" id="search-emp" placeholder="F.I.SH yoki ID bo'yicha qidiruv..." style="flex:1;">
-                   <select id="filter-type" style="width:200px;">
-                       <option value="all">Barcha Xodimlar</option>
-                       <option value="Shtat">Shtat (Doimiy)</option>
-                       <option value="Ishbay">Ishbay</option>
-                       <option value="GPD">Fuqaroviy Shartnoma</option>
-                   </select>
-               </div>
+        <!-- === KADRLAR TAB === -->
+        <div id="tab-kadrlar">
+            <div class="card no-print">
+                <h3>Yangi Xodim Qo'shish</h3>
+                <form id="emp-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Xodim F.I.SH</label>
+                            <input type="text" id="e-name" placeholder="Masalan: Aliyev Vali" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Bandlik Turi</label>
+                            <select id="e-type" onchange="toggleEmpInputs()">
+                                <option value="Shtat">Shtat (Doimiy)</option>
+                                <option value="Ishbay">Ishbay (Bajarilgan ishga)</option>
+                                <option value="GPD">GPD (Shartnoma)</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="grp-pos-select">
+                            <label>Lavozim (Shtatdan)</label>
+                            <select id="e-pos-select"><option value="">Tanlang...</option></select>
+                        </div>
+                        <div class="form-group" id="grp-pos-text" style="display:none;">
+                            <label>Vazifasi / Ish Nomi</label>
+                            <input type="text" id="e-pos-text">
+                        </div>
+                        <div class="form-group">
+                            <label>Oylik Maosh / Stavka</label>
+                            <input type="number" id="e-salary" placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Sana</label>
+                            <input type="date" id="e-date" required>
+                        </div>
+                    </div>
+                    <div style="margin-top:15px; text-align:right;">
+                        <button type="button" onclick="resetForm()" class="btn btn-ghost">Bekor qilish</button>
+                        <button type="submit" class="btn btn-primary">Saqlash</button>
+                    </div>
+                </form>
             </div>
 
-            <div class="row-grid">
-                <!-- FORM -->
-                <div class="no-print">
-                    <div class="card">
-                        <form id="emp-form">
-                            <h3 class="section-title">Yangi Xodim Qo'shish</h3>
-                            
-                            <div class="form-group">
-                                <label>Ishlash Turi</label>
-                                <select id="e-type" onchange="toggleEmpFields()">
-                                    <option value="Shtat">Shtat (Mehnat Shartnomasi)</option>
-                                    <option value="Ishbay">Ishbay (Mehnat Shartnomasi)</option>
-                                    <option value="GPD">Fuqaroviy-Huquqiy Shartnoma</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>F.I.SH (To'liq)</label>
-                                <input type="text" id="e-name" required placeholder="Abdullayev Abdulla Abdullayevich">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Pasport (Seriya va Raqam)</label>
-                                <input type="text" id="e-passport" placeholder="AA 1234567">
-                            </div>
-
-                            <div class="form-group" id="grp-position">
-                                <label>Lavozim (Shtatdan tanlang)</label>
-                                <select id="e-position-select">
-                                    <option value="">-- Tanlang --</option>
-                                    <!-- JS Load -->
-                                </select>
-                            </div>
-
-                             <div class="form-group" id="grp-manual-pos" style="display:none;">
-                                <label>Bajaradigan Ishi / Vazifasi</label>
-                                <input type="text" id="e-manual-job" placeholder="Masalan: Ta'mirlash ishlari">
-                            </div>
-
-                            <div class="form-group" id="grp-salary">
-                                <label>Oylik Maosh (so'm)</label>
-                                <input type="text" id="e-salary" readonly placeholder="Shtat bo'yicha avtomatik" style="background:#f1f5f9;">
-                            </div>
-
-                            <div class="form-group" id="grp-contract-sum" style="display:none;">
-                                <label>Shartnoma Summasi / Tarif</label>
-                                <input type="number" id="e-custom-pay" placeholder="0">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Ishga Kirish Sanasi</label>
-                                <input type="date" id="e-date" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Telefon</label>
-                                <input type="text" id="e-phone" placeholder="+998 90 123 45 67">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary" id="btn-save-emp">💾 Xodimni Saqlash</button>
-                            <button type="button" onclick="resetEmpForm()" class="btn btn-sm" style="width:100%; margin-top:5px; background:transparent; color:#64748b;">Bekor qilish</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- LIST -->
-                <div class="card">
-                     <div class="section-title">
-                        <span>Xodimlar Ro'yxati</span>
-                        <span class="badge bg-gray" id="emp-count">0 ta</span>
-                    </div>
-                    <div style="overflow-x:auto;">
-                        <table id="table-emp">
-                            <thead>
-                                <tr>
-                                    <th>№</th>
-                                    <th>F.I.SH</th>
-                                    <th>Lavozim / Vazifa</th>
-                                    <th>Turi</th>
-                                    <th>Sana</th>
-                                    <th class="num-col">Maosh/Summa</th>
-                                    <th class="no-print">Amal</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbody-emp">
-                                <!-- JS Load -->
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="card">
+                <h3>Xodimlar Ro'yxati</h3>
+                <div style="overflow-x:auto;">
+                    <table id="emp-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>F.I.SH</th>
+                                <th>Lavozim</th>
+                                <th>Turi</th>
+                                <th>Sana</th>
+                                <th class="num">Oylik (Plan)</th>
+                                <th class="no-print">Amal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="emp-tbody"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
-        <!-- 2. SHTAT JADVALI SECTION -->
-        <div id="section-shtat" style="display:none;">
-            <div class="row-grid">
-                <!-- FORM -->
-                <div class="no-print">
-                    <div class="card">
-                        <form id="shtat-form">
-                            <h3 class="section-title">Lavozim Qo'shish</h3>
-                            <div class="form-group">
-                                <label>Bo'lim Nomi</label>
-                                <input type="text" id="s-dept" list="dept-list" placeholder="Masalan: Buxgalteriya" required>
-                                <datalist id="dept-list">
-                                    <option value="Ma'muriyat">
-                                    <option value="Buxgalteriya">
-                                    <option value="Sotuv Bo'limi">
-                                    <option value="Omborxona">
-                                    <option value="Texnik Xodimlar">
-                                </datalist>
-                            </div>
-                            <div class="form-group">
-                                <label>Lavozim Nomi</label>
-                                <input type="text" id="s-pos" placeholder="Masalan: Bosh hisobchi" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Shtat Birligi (Soni)</label>
-                                <input type="number" id="s-count" min="0.5" step="0.5" value="1" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Bir Birlik Uchun Oylik (so'm)</label>
-                                <input type="number" id="s-salary" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">➕ Qo'shish</button>
-                        </form>
+        <!-- === PAYROLL TAB === -->
+        <div id="tab-payroll" style="display:none;">
+            <div class="card no-print">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <label>Hisobot Oyi:</label>
+                        <input type="month" id="pay-month" onchange="loadPayroll()">
+                        <button onclick="calculatePayroll()" class="btn btn-primary">⚙️ Hisoblash</button>
                     </div>
+                    <button onclick="window.print()" class="btn btn-success">🖨️ Vedomostni Chop Etish</button>
                 </div>
+            </div>
 
-                <!-- LIST -->
-                <div class="card">
-                    <div class="section-title">
-                        <span>SHTAT JADVALI (T-3)</span>
-                        <button onclick="window.print()" class="no-print btn btn-sm btn-success">🖨️ T-3 Shaklni Chop Etish</button>
-                    </div>
-                    
-                    <div id="shtat-print-view">
-                        <div style="margin-bottom:20px; text-align:center; display:none;" class="show-print">
-                            <h2>SHTAT JADVALI</h2>
-                            <p>"FAXR MADAD KONSALT" MChJ</p>
-                        </div>
-                        <table id="table-shtat">
-                            <thead>
-                                <tr>
-                                    <th>Bo'lim</th>
-                                    <th>Lavozim</th>
-                                    <th class="num-col">Shtat Birligi</th>
-                                    <th class="num-col">Oylik Maosh</th>
-                                    <th class="num-col">Jami Fond</th>
-                                    <th class="no-print">Amal</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbody-shtat">
-                                <!-- JS Load -->
-                            </tbody>
-                            <tfoot>
-                                <tr style="font-weight:bold; background:#e2e8f0;">
-                                    <td colspan="2">JAMI:</td>
-                                    <td class="num-col" id="total-units">0</td>
-                                    <td></td>
-                                    <td class="num-col" id="total-fund">0</td>
-                                    <td class="no-print"></td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <div style="margin-top:30px; display:none;" class="show-print">
-                            <div style="display:flex; justify-content:space-between; margin-top:50px;">
-                                <span>Direktor: _______________</span>
-                                <span>Bosh hisobchi: _______________</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="card" id="payroll-sheet">
+                <div class="show-print text-center">
+                    <h2 style="text-align:center;">ISH HAQI TO'LASH QAYDNOMASI</h2>
+                    <p style="text-align:center;" id="sheet-month-label"></p>
                 </div>
+                
+                <div style="overflow-x:auto;">
+                    <table id="pay-table">
+                        <thead>
+                            <tr style="background:#e0f2fe;">
+                                <th>№</th>
+                                <th>F.I.SH</th>
+                                <th class="num">Hisoblangan<br>(Gross)</th>
+                                <th class="num">JShODS (12%)<br><small>Daromad Solig'i</small></th>
+                                <th class="num">INPS (0.1%)<br><small>Xalq Banki</small></th>
+                                <th class="num">Netto<br>(Qo'lga)</th>
+                                <th class="num" style="background:#fefce8;">Ijtimoiy Soliq<br>(12% Korxona)</th>
+                                <th class="no-print">Tahrirlash</th>
+                                <th class="print-only" style="display:none;">Imzo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pay-tbody"></tbody>
+                        <tfoot style="font-weight:bold; background:#e0f2fe;">
+                            <tr>
+                                <td colspan="2">JAMI:</td>
+                                <td class="num" id="t-gross">0</td>
+                                <td class="num" id="t-tax">0</td>
+                                <td class="num" id="t-inps">0</td>
+                                <td class="num" id="t-net">0</td>
+                                <td class="num" id="t-social">0</td>
+                                <td class="no-print"></td>
+                                <td class="print-only" style="display:none;"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- === SHTAT TAB === -->
+        <div id="tab-shtat" style="display:none;">
+            <div class="card no-print">
+                <h3>Shtat Birligi Qo'shish</h3>
+                <form id="shtat-form" style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <input type="text" id="s-dept" placeholder="Bo'lim (masalan: Buxgalteriya)" required>
+                    <input type="text" id="s-pos" placeholder="Lavozim" required>
+                    <input type="number" id="s-salary" placeholder="Oylik Maosh" required>
+                    <button type="submit" class="btn btn-primary">Qo'shish</button>
+                </form>
+            </div>
+            <div class="card">
+                <h3>Shtat Jadvali</h3>
+                <table id="shtat-table">
+                    <thead>
+                        <tr>
+                            <th>Bo'lim</th>
+                            <th>Lavozim</th>
+                            <th class="num">Oylik</th>
+                            <th class="no-print">Amal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="shtat-tbody"></tbody>
+                </table>
             </div>
         </div>
 
     </div>
 
-    <script>
-        // DATA
-        let shtat = JSON.parse(localStorage.getItem('kadr_shtat') || '[]');
-        let employees = JSON.parse(localStorage.getItem('kadr_employees') || '[]');
-        let editingEmpId = null;
+    <!-- PRINT STYLES -->
+    <style>
+        @media print {
+            .print-only { display: table-cell !important; }
+        }
+    </style>
 
-        // INIT
+    <script>
+        // --- DATA ---
+        let employees = JSON.parse(localStorage.getItem('k_employees') || '[]');
+        let shtat = JSON.parse(localStorage.getItem('k_shtat') || '[]');
+        // Payroll structure: { '2025-01': [ {empId, gross, tax, inps, net, social}, ... ], ... }
+        let payrolls = JSON.parse(localStorage.getItem('k_payrolls') || '{}');
+        let editingId = null;
+
         window.onload = function() {
-            renderShtat();
-            renderSelectOptions();
-            renderEmployees();
+            document.getElementById('current-date').innerText = new Date().toLocaleDateString();
+            document.getElementById('pay-month').value = new Date().toISOString().slice(0, 7);
             
-            document.getElementById('search-emp').addEventListener('input', renderEmployees);
-            document.getElementById('filter-type').addEventListener('change', renderEmployees);
+            renderShtat();
+            renderEmployees(); // also updates select options
+            loadPayroll();
         };
 
-        // DOM UTILS
-        function switchTab(tab) {
-            document.getElementById('section-employees').style.display = tab === 'employees' ? 'block' : 'none';
-            document.getElementById('section-shtat').style.display = tab === 'shtat' ? 'block' : 'none';
-            document.getElementById('tab-emp').classList.toggle('active', tab === 'employees');
-            document.getElementById('tab-shtat').classList.toggle('active', tab === 'shtat');
-            
-            if(tab === 'shtat') renderShtat(); // Refresh just in case
+        function setTab(tab) {
+            ['kadrlar', 'payroll', 'shtat'].forEach(t => {
+                document.getElementById('tab-'+t).style.display = (t === tab ? 'block' : 'none');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
         }
 
-        function toggleEmpFields() {
-            const type = document.getElementById('e-type').value;
-            const grpPos = document.getElementById('grp-position');
-            const grpManual = document.getElementById('grp-manual-pos');
-            const grpSalary = document.getElementById('grp-salary');
-            const grpCustom = document.getElementById('grp-contract-sum');
-
-            if (type === 'Shtat') {
-                grpPos.style.display = 'block';
-                grpManual.style.display = 'none';
-                grpSalary.style.display = 'block';
-                grpCustom.style.display = 'none';
-            } else {
-                grpPos.style.display = 'none';
-                grpManual.style.display = 'block';
-                grpSalary.style.display = 'none';
-                grpCustom.style.display = 'block';
-            }
-        }
-
-        // --- SHTAT LOGIC ---
+        // --- SHTAT ---
         document.getElementById('shtat-form').onsubmit = function(e) {
             e.preventDefault();
-            const item = {
+            shtat.push({
                 id: Date.now(),
                 dept: document.getElementById('s-dept').value,
                 pos: document.getElementById('s-pos').value,
-                count: parseFloat(document.getElementById('s-count').value),
                 salary: parseFloat(document.getElementById('s-salary').value)
-            };
-            shtat.push(item);
+            });
             saveShtat();
             this.reset();
             renderShtat();
-            renderSelectOptions();
+            renderEmployees(); // update select
         };
 
         function renderShtat() {
-            const tbody = document.getElementById('tbody-shtat');
-            tbody.innerHTML = '';
-            let tUnits = 0;
-            let tFund = 0;
-
-            shtat.sort((a,b) => a.dept.localeCompare(b.dept));
-
-            shtat.forEach(s => {
-                const total = s.count * s.salary;
-                tUnits += s.count;
-                tFund += total;
-
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
+            const tbody = document.getElementById('shtat-tbody');
+            tbody.innerHTML = shtat.map(s => `
+                <tr>
                     <td>${s.dept}</td>
-                    <td><b>${s.pos}</b></td>
-                    <td class="num-col">${s.count}</td>
-                    <td class="num-col">${s.salary.toLocaleString()}</td>
-                    <td class="num-col">${total.toLocaleString()}</td>
-                    <td class="no-print">
-                        <button onclick="deleteShtat(${s.id})" style="color:red; border:none; background:none; cursor:pointer;">❌</button>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-
-            document.getElementById('total-units').innerText = tUnits;
-            document.getElementById('total-fund').innerText = tFund.toLocaleString();
+                    <td>${s.pos}</td>
+                    <td class="num">${s.salary.toLocaleString()}</td>
+                    <td class="no-print"><button onclick="delShtat(${s.id})" class="btn-danger btn" style="padding:2px 5px;">x</button></td>
+                </tr>
+            `).join('');
+            
+            // Update Select
+            const sel = document.getElementById('e-pos-select');
+            const currentVal = sel.value;
+            sel.innerHTML = '<option value="">-- Shtatdan tanlang --</option>' + 
+                shtat.map(s => `<option value="${s.id}">${s.pos} (${s.salary})</option>`).join('');
+            sel.value = currentVal;
         }
 
-        function deleteShtat(id) {
-            if(!confirm("O'chirilsinmi?")) return;
-            shtat = shtat.filter(x => x.id !== id);
-            saveShtat();
-            renderShtat();
-            renderSelectOptions();
-        }
-
-        function saveShtat() {
-            localStorage.setItem('kadr_shtat', JSON.stringify(shtat));
-        }
-
-        // --- EMPLOYEES LOGIC ---
-        
-        // Load positions into select
-        function renderSelectOptions() {
-            const sel = document.getElementById('e-position-select');
-            sel.innerHTML = '<option value="">-- Tanlang --</option>';
-            shtat.forEach(s => {
-                const opt = document.createElement('option');
-                opt.value = s.id; // Store ID
-                opt.innerText = `${s.pos} (${s.dept}) - ${s.salary.toLocaleString()} so'm`;
-                sel.appendChild(opt);
-            });
-        }
-
-        // Auto-fill salary when position selected
-        document.getElementById('e-position-select').onchange = function() {
-            const id = parseInt(this.value);
-            const s = shtat.find(x => x.id === id);
-            if(s) {
-                document.getElementById('e-salary').value = s.salary;
-            } else {
-                document.getElementById('e-salary').value = '';
-            }
+        document.getElementById('e-pos-select').onchange = function() {
+            const s = shtat.find(x => x.id == this.value);
+            if(s) document.getElementById('e-salary').value = s.salary;
         };
+
+        function saveShtat() { localStorage.setItem('k_shtat', JSON.stringify(shtat)); }
+        function delShtat(id) { if(confirm('Ochirilsinmi?')) { shtat = shtat.filter(x=>x.id!==id); saveShtat(); renderShtat(); } }
+
+
+        // --- EMPLOYEES ---
+        function toggleEmpInputs() {
+            const type = document.getElementById('e-type').value;
+            const isShtat = type === 'Shtat';
+            document.getElementById('grp-pos-select').style.display = isShtat ? 'block' : 'none';
+            document.getElementById('grp-pos-text').style.display = isShtat ? 'none' : 'block';
+        }
 
         document.getElementById('emp-form').onsubmit = function(e) {
             e.preventDefault();
-            
             const type = document.getElementById('e-type').value;
             let posName = "";
-            let salaryAmt = 0;
-            let shtatId = null;
-
-            if (type === 'Shtat') {
-                const sid = document.getElementById('e-position-select').value;
-                if (!sid) { alert('Lavozimni tanlang!'); return; }
-                const s = shtat.find(x => x.id == sid);
-                posName = s.pos; // + " (" + s.dept + ")";
-                salaryAmt = s.salary;
-                shtatId = s.id;
+            
+            if(type === 'Shtat') {
+                const sId = document.getElementById('e-pos-select').value;
+                const s = shtat.find(x => x.id == sId);
+                posName = s ? s.pos : "Aniqlanmagan";
             } else {
-                posName = document.getElementById('e-manual-job').value;
-                salaryAmt = parseFloat(document.getElementById('e-custom-pay').value) || 0;
+                posName = document.getElementById('e-pos-text').value;
             }
 
             const emp = {
-                id: editingEmpId || Date.now(),
-                type: type,
+                id: editingId || Date.now(),
                 name: document.getElementById('e-name').value,
-                passport: document.getElementById('e-passport').value,
+                type: type,
                 position: posName,
-                salary: salaryAmt,
-                date: document.getElementById('e-date').value,
-                phone: document.getElementById('e-phone').value,
-                shtatId: shtatId // Link to shtat if applicable
+                salary: parseFloat(document.getElementById('e-salary').value) || 0,
+                date: document.getElementById('e-date').value
             };
 
-            if (editingEmpId) {
-                const idx = employees.findIndex(x => x.id === editingEmpId);
+            if(editingId) {
+                const idx = employees.findIndex(x => x.id === editingId);
                 employees[idx] = emp;
             } else {
                 employees.push(emp);
             }
-
             saveEmp();
-            resetEmpForm();
+            resetForm();
             renderEmployees();
         };
 
         function renderEmployees() {
-            const tbody = document.getElementById('tbody-emp');
-            tbody.innerHTML = '';
-            
-            const q = document.getElementById('search-emp').value.toLowerCase();
-            const filter = document.getElementById('filter-type').value;
-
-            const filtered = employees.filter(e => {
-                const matchName = e.name.toLowerCase().includes(q) || (e.passport && e.passport.toLowerCase().includes(q));
-                const matchType = filter === 'all' || e.type === filter;
-                return matchName && matchType;
-            });
-
-            document.getElementById('emp-count').innerText = filtered.length + " ta";
-
-            filtered.forEach((e, index) => {
-                let badgeClass = 'bg-blue';
-                if(e.type === 'Ishbay') badgeClass = 'bg-orange';
-                if(e.type === 'GPD') badgeClass = 'bg-purple';
-
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>
-                        <b>${e.name}</b><br>
-                        <span style="font-size:0.8rem; color:#64748b;">${e.passport}</span>
-                    </td>
+            const tbody = document.getElementById('emp-tbody');
+            tbody.innerHTML = employees.map((e, i) => `
+                <tr>
+                    <td>${i+1}</td>
+                    <td><b>${e.name}</b></td>
                     <td>${e.position}</td>
-                    <td><span class="badge ${badgeClass}">${e.type}</span></td>
+                    <td><span class="badge" style="background:${getBadgeColor(e.type)}">${e.type}</span></td>
                     <td>${e.date}</td>
-                    <td class="num-col">${e.salary.toLocaleString()}</td>
+                    <td class="num">${e.salary.toLocaleString()}</td>
                     <td class="no-print">
-                        <button onclick="editEmp(${e.id})" class="btn btn-sm btn-primary">✏️</button>
-                        <button onclick="deleteEmp(${e.id})" class="btn btn-sm" style="background:#fee2e2; color:red;">🗑️</button>
+                        <button onclick="editEmp(${e.id})" class="btn-ghost btn" style="padding:2px 5px;">✏️</button>
+                        <button onclick="delEmp(${e.id})" class="btn-danger btn" style="padding:2px 5px;">🗑️</button>
                     </td>
-                `;
-                tbody.appendChild(tr);
-            });
+                </tr>
+            `).join('');
         }
 
-        function editEmp(id) {
+        function getBadgeColor(t) {
+            if(t==='Shtat') return '#2563eb'; // blue
+            if(t==='Ishbay') return '#f59e0b'; // orange
+            return '#9333ea'; // purple
+        }
+
+        function saveEmp() { localStorage.setItem('k_employees', JSON.stringify(employees)); }
+        function editEmp(id) { 
             const e = employees.find(x => x.id === id);
-            if(!e) return;
-            editingEmpId = id;
-
-            document.getElementById('e-type').value = e.type;
-            toggleEmpFields(); // update UI
-
+            editingId = id;
             document.getElementById('e-name').value = e.name;
-            document.getElementById('e-passport').value = e.passport;
-            document.getElementById('e-date').value = e.date;
-            document.getElementById('e-phone').value = e.phone;
-
-            if (e.type === 'Shtat') {
-                if (e.shtatId) document.getElementById('e-position-select').value = e.shtatId;
-                document.getElementById('e-salary').value = e.salary;
+            document.getElementById('e-type').value = e.type;
+            toggleEmpInputs();
+            if(e.type==='Shtat') {
+                // Try to find matching shtat by position name? Or keep simple text
+                // Since we didn't save shtatId, we just show value in salary
+                // For simplified UX, let user re-select if needed
             } else {
-                document.getElementById('e-manual-job').value = e.position;
-                document.getElementById('e-custom-pay').value = e.salary;
+                document.getElementById('e-pos-text').value = e.position;
+            }
+            document.getElementById('e-salary').value = e.salary;
+            document.getElementById('e-date').value = e.date;
+        }
+        function resetForm() { editingId = null; document.getElementById('emp-form').reset(); toggleEmpInputs(); }
+        function delEmp(id) { if(confirm('Ochirilsinmi?')) { employees = employees.filter(x=>x.id!==id); saveEmp(); renderEmployees(); } }
+
+
+        // --- PAYROLL ---
+        function loadPayroll() {
+            const m = document.getElementById('pay-month').value;
+            document.getElementById('sheet-month-label').innerText = m + " oyi uchun";
+            
+            // If exists, load from storage. If not, don't auto-calc yet.
+            const data = payrolls[m] || [];
+            renderPayrollTable(data);
+        }
+
+        function calculatePayroll() {
+            const m = document.getElementById('pay-month').value;
+            if(!confirm(m + " oyi uchun hisoblashni amalga oshirasizmi? (Eski ma'lumotlar yangilanadi)")) return;
+
+            const newData = employees.map(e => {
+                const gross = e.salary; // Assume full month for now
+                // 12% Income Tax (includes INPS logic or separate?)
+                // Standard: Total tax deducted from user = 12%. 
+                // INPS (0.1%) is usually INSIDE that 12%. 
+                // Net = Gross - (Gross * 0.12).
+                
+                const tax = gross * 0.12;
+                const inps = gross * 0.001; // Just for display (Send to Xalq Bank)
+                const net = gross - tax;
+                const social = gross * 0.12; // 12% Employer expense
+
+                return {
+                    id: e.id,
+                    name: e.name,
+                    gross: gross,
+                    tax: tax,
+                    inps: inps,
+                    net: net,
+                    social: social
+                };
+            });
+
+            payrolls[m] = newData;
+            localStorage.setItem('k_payrolls', JSON.stringify(payrolls));
+            renderPayrollTable(newData);
+        }
+
+        function renderPayrollTable(data) {
+            const tbody = document.getElementById('pay-tbody');
+            if(!data || data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;">Ma\'lumot yo\'q. "Hisoblash" tugmasini bosing.</td></tr>';
+                document.getElementById('t-gross').innerHTML = 0;
+                return;
             }
 
-            document.getElementById('btn-save-emp').innerText = "📝 Tahrirni Saqlash";
+            let totals = {g:0, t:0, i:0, n:0, s:0};
+
+            tbody.innerHTML = data.map((r, i) => {
+                totals.g += r.gross;
+                totals.t += r.tax;
+                totals.i += r.inps;
+                totals.n += r.net;
+                totals.s += r.social;
+
+                return `
+                <tr>
+                    <td>${i+1}</td>
+                    <td><b>${r.name}</b></td>
+                    <td class="num">${r.gross.toLocaleString()}</td>
+                    <td class="num">${r.tax.toLocaleString()}</td>
+                    <td class="num">${r.inps.toLocaleString()}</td>
+                    <td class="num" style="font-weight:bold; color:var(--primary-color);">${r.net.toLocaleString()}</td>
+                    <td class="num" style="background:#fefce8;">${r.social.toLocaleString()}</td>
+                    <td class="no-print">
+                        <button onclick="editPay('${r.id}')" class="btn-ghost btn" style="font-size:0.7rem;">✏️</button>
+                    </td>
+                    <td class="print-only" style="display:none; border-bottom:1px solid #000;"></td>
+                </tr>
+                `;
+            }).join('');
+
+            document.getElementById('t-gross').innerHTML = totals.g.toLocaleString();
+            document.getElementById('t-tax').innerHTML = totals.t.toLocaleString();
+            document.getElementById('t-inps').innerHTML = totals.i.toLocaleString();
+            document.getElementById('t-net').innerHTML = totals.n.toLocaleString();
+            document.getElementById('t-social').innerHTML = totals.s.toLocaleString();
         }
 
-        function resetEmpForm() {
-            editingEmpId = null;
-            document.getElementById('emp-form').reset();
-            toggleEmpFields();
-            document.getElementById('btn-save-emp').innerText = "💾 Xodimni Saqlash";
-        }
+        function editPay(id) {
+            const m = document.getElementById('pay-month').value;
+            const data = payrolls[m];
+            const row = data.find(r => r.id == id);
+            
+            const newGross = prompt(`${row.name} uchun Hisoblangan Oylikni (Gross) kiriting:`, row.gross);
+            if(newGross === null) return;
+            
+            const g = parseFloat(newGross) || 0;
+            // Recalc
+            row.gross = g;
+            row.tax = g * 0.12;
+            row.inps = g * 0.001;
+            row.net = g - row.tax;
+            row.social = g * 0.12;
 
-        function deleteEmp(id) {
-            if(!confirm("O'chirilsinmi?")) return;
-            employees = employees.filter(x => x.id !== id);
-            saveEmp();
-            renderEmployees();
+            localStorage.setItem('k_payrolls', JSON.stringify(payrolls));
+            renderPayrollTable(data);
         }
-
-        function saveEmp() {
-            localStorage.setItem('kadr_employees', JSON.stringify(employees));
-        }
-
-        // Print Styles
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @media print {
-                .show-print { display: block !important; }
-            }
-        `;
-        document.head.appendChild(style);
 
     </script>
+
 </body>
 </html>

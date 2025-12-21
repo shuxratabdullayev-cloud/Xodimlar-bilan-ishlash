@@ -1,28 +1,24 @@
-# Kadrlar Hisobi va Shtat Jadvali
+# Kadrlar va Ish Haqi Tizimi
 
-Ushbu tizim korxona xodimlarini va shtat jadvalini boshqarish uchun mo'ljallangan.
-
-## Joylashuvi
-Fayl: `kadrlar/index.html`
+Ushbu tizim bir vaqtning o'zida Xodimlarni (Kadrlar) va Oylik maoshlarni (Payroll) boshqarish imkonini beradi.
 
 ## Imkoniyatlari
 
-### 1. Shtat Jadvali (Struktura)
-- **Tashkil qilish:** Bo'limlar va ularning ichidagi lavozimlarni yaratish.
-- **Limit:** Har bir lavozim uchun nechta shtat birligi (xodim) kerakligini belgilash.
-- **Oylik Fund:** Har bir lavozim uchun oylik maoshni kiritish va umumiy fondni ko'rish.
-- **Chop etish:** Rasmiy T-3 shaklida shtat jadvalini chop etish.
+### 1. Kadrlar va Shtat
+- **Shtat Jadvali:** Bo'lim va lavozimlarni shakllantirish.
+- **Xodimlar:** Doimiy, Ishbay va Shartnoma (GPD) asosida ishlovchilarni ro'yxatga olish.
 
-### 2. Xodimlar Hisobi
-- **3 Xil Toifa:**
-    - **Shtatdagi xodim:** Mehnat shartnomasi, belgilangan oylik maosh.
-    - **Ishbay:** Bajarilgan ish hajmiga qarab to'lanadigan xodimlar.
-    - **Fuqaroviy Shartnoma (GPD):** Bir martalik yoki muddatli xizmat ko'rsatuvchilar.
-- **Ma'lumotlar:** F.I.SH, Pasport, Manzil, Telefon, Ishga kirgan sana.
+### 2. Ish Haqi Hisobi (Payroll)
+- **Avtomatik Hisoblash:** Har oy uchun barcha xodimlarga belgilangan stavka bo'yicha hisoblash.
+- **Soliqlar:**
+    - **Daromad solig'i (12%):** Xodim oyligidan ushlanadi.
+    - **INPS (0.1%):** Xalq banki reyestriga o'tkaziladigan qism (Daromad solig'i tarkibida hisoblanadi, lekin alohida ko'rsatiladi).
+    - **Ijtimoiy Soliq (12%):** Korxona tomonidan to'lanadigan xarajat.
+- **Netto (Qo'lga):** Soliqlar chegirilgandan keyingi summa.
+- **Tahrirlash:** Agar xodim to'liq oy ishlamagan bo'lsa, hisoblangan summani (Gross) qo'lda o'zgartirish va soliqlarni qayta hisoblash mumkin.
 
 ## Ishlatish
-1.  Dastlab **"Shtat Jadvali"** bo'limiga o'tib, bo'lim va lavozimlarni yarating.
-2.  Keyin **"Xodimlar"** bo'limiga o'tib, yangi xodim qo'shing. Agar shtatdagi xodim bo'lsa, ro'yxatdan lavozimni tanlang.
-
-## Ma'lumotlar
-Barcha ma'lumotlar brauzeringizda saqlanadi. Internet shart emas.
+1.  **Shtat** bo'limida lavozimlarni yarating.
+2.  **Kadrlar** bo'limida xodimlarni qo'shing.
+3.  **Ish Haqi** bo'limida oyni tanlab "Hisoblash" tugmasini bosing.
+4.  Natijani ko'ring va "Chop etish" orqali qog'ozga chiqarib oling.
