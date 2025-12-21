@@ -8,8 +8,10 @@
     <style>
         :root {
             /* BLUE/SLATE THEME */
-            --primary-color: #1e40af; /* Blue 800 */
-            --bg-color: #f8fafc;      /* Slate 50 */
+            --primary-color: #1e40af;
+            /* Blue 800 */
+            --bg-color: #f8fafc;
+            /* Slate 50 */
             --card-bg: #ffffff;
             --text-main: #0f172a;
             --border-color: #cbd5e1;
@@ -17,49 +19,196 @@
             --danger: #dc2626;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-color); color: var(--text-main); margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
-        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
         /* HEADER */
-        header { background: var(--primary-color); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        h1 { margin: 0; font-size: 1.4rem; }
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
 
         /* LAYOUT */
-        .container { max-width: 1400px; margin: 20px auto; padding: 0 15px; width: 100%; box-sizing: border-box; }
-        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        
+        .container {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
         /* TABS */
-        .tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 1px; }
-        .tab-btn { padding: 10px 20px; background: #e2e8f0; border: none; border-radius: 8px 8px 0 0; cursor: pointer; font-weight: 600; color: #64748b; }
-        .tab-btn.active { background: var(--primary-color); color: white; }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: #e2e8f0;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
 
         /* FORMS & INPUTS */
-        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .form-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; }
-        input, select { width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; box-sizing: border-box; }
-        input:focus, select:focus { outline: 2px solid var(--primary-color); border-color: transparent; }
-        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus,
+        select:focus {
+            outline: 2px solid var(--primary-color);
+            border-color: transparent;
+        }
+
         /* BUTTONS */
-        .btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; color: white; display: inline-flex; align-items: center; gap: 5px; }
-        .btn-primary { background: var(--primary-color); }
-        .btn-success { background: var(--success); }
-        .btn-danger { background: var(--danger); }
-        .btn-ghost { background: transparent; color: inherit; border: 1px solid var(--border-color); }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+        }
+
+        .btn-success {
+            background: var(--success);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: inherit;
+            border: 1px solid var(--border-color);
+        }
 
         /* TABLES */
-        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-        th, td { padding: 10px; border: 1px solid var(--border-color); text-align: left; }
-        th { background: #f1f5f9; }
-        .num { text-align: right; font-family: monospace; font-weight: 600; }
-        .badge { padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; color: white; font-weight: bold; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+        }
+
+        .num {
+            text-align: right;
+            font-family: monospace;
+            font-weight: 600;
+        }
+
+        .badge {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: white;
+            font-weight: bold;
+        }
 
         /* PRINT */
         @media print {
-            .no-print { display: none !important; }
-            body { background: white; }
-            .card { border: none; shadow: none; padding: 0; }
-            .container { max-width: 100%; margin: 0; }
-            table { width: 100%; border: 1px solid black; }
-            th, td { border: 1px solid black; }
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+            }
+
+            .card {
+                border: none;
+                shadow: none;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            table {
+                width: 100%;
+                border: 1px solid black;
+            }
+
+            th,
+            td {
+                border: 1px solid black;
+            }
         }
     </style>
 </head>
@@ -77,10 +226,11 @@
     </header>
 
     <div class="container">
-        
+
         <div class="tabs no-print">
             <button class="tab-btn active" onclick="setTab('kadrlar')">👨‍💼 Xodimlar (Kadr)</button>
-            <button class="tab-btn" onclick="setTab('payroll')">💰 Ish Haqi Hisobi</button>
+            <button class="tab-btn" onclick="setTab('payroll')">💰 Ish Haqi (Tabel)</button>
+            <button class="tab-btn" onclick="setTab('tax')">📊 Soliq Hisoboti</button>
             <button class="tab-btn" onclick="setTab('shtat')">🏢 Shtat Jadvali</button>
         </div>
 
@@ -102,9 +252,20 @@
                                 <option value="GPD">GPD (Shartnoma)</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label>Soliq Imtiyozi (JShODS)</label>
+                            <select id="e-exemption">
+                                <option value="">Imtiyoz mavjud emas</option>
+                                <option value="380">SK 380-modda (Nogironlik - 1.41 BRV)</option>
+                                <option value="378_edu">SK 378-modda (Kontrakt to'lovi)</option>
+                                <option value="378_loan">SK 378-modda (Ipoteka krediti)</option>
+                            </select>
+                        </div>
                         <div class="form-group" id="grp-pos-select">
                             <label>Lavozim (Shtatdan)</label>
-                            <select id="e-pos-select"><option value="">Tanlang...</option></select>
+                            <select id="e-pos-select">
+                                <option value="">Tanlang...</option>
+                            </select>
                         </div>
                         <div class="form-group" id="grp-pos-text" style="display:none;">
                             <label>Vazifasi / Ish Nomi</label>
@@ -165,7 +326,7 @@
                     <h2 style="text-align:center;">ISH HAQI TO'LASH QAYDNOMASI</h2>
                     <p style="text-align:center;" id="sheet-month-label"></p>
                 </div>
-                
+
                 <div style="overflow-x:auto;">
                     <table id="pay-table">
                         <thead>
@@ -226,12 +387,63 @@
             </div>
         </div>
 
+        <!-- === TAX REPORT TAB === -->
+        <div id="tab-tax" style="display:none;">
+            <div class="card no-print">
+                <h3>Soliq Hisoboti (Shakl 11101_13)</h3>
+                <p style="font-size:0.9rem; color:#666;">Ushbu hisobot Ish Haqi ma'lumotlari asosida avtomatik
+                    shakllanadi.</p>
+                <div style="display:flex; gap:10px; margin-top:10px;">
+                    <button onclick="generateTaxReport()" class="btn btn-primary">🔄 Hisobotni Yangilash</button>
+                    <button onclick="window.print()" class="btn btn-success">🖨️ Chop etish</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 style="text-align:center; font-size:1.1rem; margin-bottom:5px;">Jismoniy shaxslardan olinadigan
+                    daromad solig'i hisob-kitobi (Ilova)</h2>
+                <div style="text-align:center; margin-bottom:15px; font-weight:bold;" id="tax-month-label"></div>
+
+                <table id="tax-report-table">
+                    <thead style="background:#f1f5f9; font-size:0.85rem;">
+                        <tr>
+                            <th rowspan="2">#</th>
+                            <th rowspan="2">F.I.SH</th>
+                            <th rowspan="2">Hisoblangan Daromad<br>(010)</th>
+                            <th colspan="2" style="text-align:center">Soliq Solinmaydigan (020)</th>
+                            <th rowspan="2">Soliq Bazasi<br>(030)</th>
+                            <th rowspan="2">Soliq Summasi<br>(040)</th>
+                            <th rowspan="2">INPS (0.1%)<br>(Ma'l. uchun)</th>
+                        </tr>
+                        <tr>
+                            <th>Summa</th>
+                            <th>Asos (Hujjat)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tax-tbody"></tbody>
+                    <tfoot style="background:#e2e8f0; font-weight:bold;">
+                        <tr id="tax-tfoot">
+                            <td colspan="2">JAMI:</td>
+                            <td class="num">0</td>
+                            <td class="num">0</td>
+                            <td></td>
+                            <td class="num">0</td>
+                            <td class="num">0</td>
+                            <td class="num">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
     </div>
 
     <!-- PRINT STYLES -->
     <style>
         @media print {
-            .print-only { display: table-cell !important; }
+            .print-only {
+                display: table-cell !important;
+            }
         }
     </style>
 
@@ -243,25 +455,25 @@
         let payrolls = JSON.parse(localStorage.getItem('k_payrolls') || '{}');
         let editingId = null;
 
-        window.onload = function() {
+        window.onload = function () {
             document.getElementById('current-date').innerText = new Date().toLocaleDateString();
             document.getElementById('pay-month').value = new Date().toISOString().slice(0, 7);
-            
+
             renderShtat();
             renderEmployees(); // also updates select options
             loadPayroll();
         };
 
         function setTab(tab) {
-            ['kadrlar', 'payroll', 'shtat'].forEach(t => {
-                document.getElementById('tab-'+t).style.display = (t === tab ? 'block' : 'none');
+            ['kadrlar', 'payroll', 'shtat', 'tax'].forEach(t => {
+                document.getElementById('tab-' + t).style.display = (t === tab ? 'block' : 'none');
             });
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
         }
 
         // --- SHTAT ---
-        document.getElementById('shtat-form').onsubmit = function(e) {
+        document.getElementById('shtat-form').onsubmit = function (e) {
             e.preventDefault();
             shtat.push({
                 id: Date.now(),
@@ -285,22 +497,22 @@
                     <td class="no-print"><button onclick="delShtat(${s.id})" class="btn-danger btn" style="padding:2px 5px;">x</button></td>
                 </tr>
             `).join('');
-            
+
             // Update Select
             const sel = document.getElementById('e-pos-select');
             const currentVal = sel.value;
-            sel.innerHTML = '<option value="">-- Shtatdan tanlang --</option>' + 
+            sel.innerHTML = '<option value="">-- Shtatdan tanlang --</option>' +
                 shtat.map(s => `<option value="${s.id}">${s.pos} (${s.salary})</option>`).join('');
             sel.value = currentVal;
         }
 
-        document.getElementById('e-pos-select').onchange = function() {
+        document.getElementById('e-pos-select').onchange = function () {
             const s = shtat.find(x => x.id == this.value);
-            if(s) document.getElementById('e-salary').value = s.salary;
+            if (s) document.getElementById('e-salary').value = s.salary;
         };
 
         function saveShtat() { localStorage.setItem('k_shtat', JSON.stringify(shtat)); }
-        function delShtat(id) { if(confirm('Ochirilsinmi?')) { shtat = shtat.filter(x=>x.id!==id); saveShtat(); renderShtat(); } }
+        function delShtat(id) { if (confirm('Ochirilsinmi?')) { shtat = shtat.filter(x => x.id !== id); saveShtat(); renderShtat(); } }
 
 
         // --- EMPLOYEES ---
@@ -311,12 +523,12 @@
             document.getElementById('grp-pos-text').style.display = isShtat ? 'none' : 'block';
         }
 
-        document.getElementById('emp-form').onsubmit = function(e) {
+        document.getElementById('emp-form').onsubmit = function (e) {
             e.preventDefault();
             const type = document.getElementById('e-type').value;
             let posName = "";
-            
-            if(type === 'Shtat') {
+
+            if (type === 'Shtat') {
                 const sId = document.getElementById('e-pos-select').value;
                 const s = shtat.find(x => x.id == sId);
                 posName = s ? s.pos : "Aniqlanmagan";
@@ -333,7 +545,7 @@
                 date: document.getElementById('e-date').value
             };
 
-            if(editingId) {
+            if (editingId) {
                 const idx = employees.findIndex(x => x.id === editingId);
                 employees[idx] = emp;
             } else {
@@ -348,7 +560,7 @@
             const tbody = document.getElementById('emp-tbody');
             tbody.innerHTML = employees.map((e, i) => `
                 <tr>
-                    <td>${i+1}</td>
+                    <td>${i + 1}</td>
                     <td><b>${e.name}</b></td>
                     <td>${e.position}</td>
                     <td><span class="badge" style="background:${getBadgeColor(e.type)}">${e.type}</span></td>
@@ -363,19 +575,19 @@
         }
 
         function getBadgeColor(t) {
-            if(t==='Shtat') return '#2563eb'; // blue
-            if(t==='Ishbay') return '#f59e0b'; // orange
+            if (t === 'Shtat') return '#2563eb'; // blue
+            if (t === 'Ishbay') return '#f59e0b'; // orange
             return '#9333ea'; // purple
         }
 
         function saveEmp() { localStorage.setItem('k_employees', JSON.stringify(employees)); }
-        function editEmp(id) { 
+        function editEmp(id) {
             const e = employees.find(x => x.id === id);
             editingId = id;
             document.getElementById('e-name').value = e.name;
             document.getElementById('e-type').value = e.type;
             toggleEmpInputs();
-            if(e.type==='Shtat') {
+            if (e.type === 'Shtat') {
                 // Try to find matching shtat by position name? Or keep simple text
                 // Since we didn't save shtatId, we just show value in salary
                 // For simplified UX, let user re-select if needed
@@ -386,14 +598,14 @@
             document.getElementById('e-date').value = e.date;
         }
         function resetForm() { editingId = null; document.getElementById('emp-form').reset(); toggleEmpInputs(); }
-        function delEmp(id) { if(confirm('Ochirilsinmi?')) { employees = employees.filter(x=>x.id!==id); saveEmp(); renderEmployees(); } }
+        function delEmp(id) { if (confirm('Ochirilsinmi?')) { employees = employees.filter(x => x.id !== id); saveEmp(); renderEmployees(); } }
 
 
         // --- PAYROLL ---
         function loadPayroll() {
             const m = document.getElementById('pay-month').value;
             document.getElementById('sheet-month-label').innerText = m + " oyi uchun";
-            
+
             // If exists, load from storage. If not, don't auto-calc yet.
             const data = payrolls[m] || [];
             renderPayrollTable(data);
@@ -401,7 +613,7 @@
 
         function calculatePayroll() {
             const m = document.getElementById('pay-month').value;
-            if(!confirm(m + " oyi uchun hisoblashni amalga oshirasizmi? (Eski ma'lumotlar yangilanadi)")) return;
+            if (!confirm(m + " oyi uchun hisoblashni amalga oshirasizmi? (Eski ma'lumotlar yangilanadi)")) return;
 
             const newData = employees.map(e => {
                 const gross = e.salary; // Assume full month for now
@@ -409,7 +621,7 @@
                 // Standard: Total tax deducted from user = 12%. 
                 // INPS (0.1%) is usually INSIDE that 12%. 
                 // Net = Gross - (Gross * 0.12).
-                
+
                 const tax = gross * 0.12;
                 const inps = gross * 0.001; // Just for display (Send to Xalq Bank)
                 const net = gross - tax;
@@ -433,13 +645,13 @@
 
         function renderPayrollTable(data) {
             const tbody = document.getElementById('pay-tbody');
-            if(!data || data.length === 0) {
+            if (!data || data.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;">Ma\'lumot yo\'q. "Hisoblash" tugmasini bosing.</td></tr>';
                 document.getElementById('t-gross').innerHTML = 0;
                 return;
             }
 
-            let totals = {g:0, t:0, i:0, n:0, s:0};
+            let totals = { g: 0, t: 0, i: 0, n: 0, s: 0 };
 
             tbody.innerHTML = data.map((r, i) => {
                 totals.g += r.gross;
@@ -450,7 +662,7 @@
 
                 return `
                 <tr>
-                    <td>${i+1}</td>
+                    <td>${i + 1}</td>
                     <td><b>${r.name}</b></td>
                     <td class="num">${r.gross.toLocaleString()}</td>
                     <td class="num">${r.tax.toLocaleString()}</td>
@@ -476,10 +688,10 @@
             const m = document.getElementById('pay-month').value;
             const data = payrolls[m];
             const row = data.find(r => r.id == id);
-            
+
             const newGross = prompt(`${row.name} uchun Hisoblangan Oylikni (Gross) kiriting:`, row.gross);
-            if(newGross === null) return;
-            
+            if (newGross === null) return;
+
             const g = parseFloat(newGross) || 0;
             // Recalc
             row.gross = g;
@@ -495,4 +707,5 @@
     </script>
 
 </body>
+
 </html>

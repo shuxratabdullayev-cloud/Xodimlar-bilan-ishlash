@@ -17,8 +17,7 @@ Ushbu tizim bir vaqtning o'zida Xodimlarni (Kadrlar) va Oylik maoshlarni (Payrol
 - **Netto (Qo'lga):** Soliqlar chegirilgandan keyingi summa.
 - **Tahrirlash:** Agar xodim to'liq oy ishlamagan bo'lsa, hisoblangan summani (Gross) qo'lda o'zgartirish va soliqlarni qayta hisoblash mumkin.
 
-## Ishlatish
+## Ishlatish (Qayta yaratildi)
 1.  **Shtat** bo'limida lavozimlarni yarating.
 2.  **Kadrlar** bo'limida xodimlarni qo'shing.
 3.  **Ish Haqi** bo'limida oyni tanlab "Hisoblash" tugmasini bosing.
-4.  Natijani ko'ring va "Chop etish" orqali qog'ozga chiqarib oling.
