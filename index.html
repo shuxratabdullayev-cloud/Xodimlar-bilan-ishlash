@@ -223,7 +223,7 @@
     <header class="no-print">
         <div>
             <h1>Kadrlar va Ish Haqi (6700)</h1>
-            <small>"FAXR MADAD KONSALT" MChJ</small>
+            <small>"FAXR MADAD KONSALT" | Muallif: Suxrat Abdullaev</small>
         </div>
         <div>
             <span style="font-size:0.9rem; margin-right:10px;" id="current-date"></span>
@@ -632,10 +632,10 @@
                         <input type="number" class="inp-table" id="fact-${e.id}" value="${rec.fact}" style="width:80px">
                     </td>
                     <td>
-                        <input type="number" class="inp-table" id="bonus-${e.id}" value="${rec.bonus}" style="width:100px; color:#d97706">
+                        <input type="text" class="inp-table" id="bonus-${e.id}" value="${rec.bonus}" placeholder="Sum / %" style="width:100px; color:#d97706">
                     </td>
                     <td>
-                        <input type="number" class="inp-table" id="sick-${e.id}" value="${rec.sick}" style="width:100px; color:#dc2626">
+                        <input type="text" class="inp-table" id="sick-${e.id}" value="${rec.sick}" placeholder="Sum / %" style="width:100px; color:#dc2626">
                     </td>
                 </tr>
                 `;
@@ -651,8 +651,8 @@
                     id: e.id,
                     plan: plan,
                     fact: parseInt(document.getElementById(`fact-${e.id}`).value) || 0,
-                    bonus: parseInt(document.getElementById(`bonus-${e.id}`).value) || 0,
-                    sick: parseInt(document.getElementById(`sick-${e.id}`).value) || 0
+                    bonus: document.getElementById(`bonus-${e.id}`).value,
+                    sick: document.getElementById(`sick-${e.id}`).value
                 };
             });
 
@@ -686,7 +686,20 @@
                 const baseSalary = e.salary;
                 const calculatedSalary = tr.plan > 0 ? Math.round((baseSalary / tr.plan) * tr.fact) : 0;
 
-                const gross = calculatedSalary + tr.bonus + tr.sick;
+                // Helper: parse % or Sum
+                const parseVal = (val, base) => {
+                    if (!val) return 0;
+                    if (typeof val === 'string' && val.includes('%')) {
+                        const pct = parseFloat(val);
+                        return Math.round(base * (pct / 100));
+                    }
+                    return parseFloat(val) || 0;
+                };
+
+                const bonusVal = parseVal(tr.bonus, baseSalary);
+                const sickVal = parseVal(tr.sick, calculatedSalary);
+
+                const gross = calculatedSalary + bonusVal + sickVal;
 
                 // Exemptions
                 let exemptAmount = 0;
